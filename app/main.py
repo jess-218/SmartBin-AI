@@ -190,7 +190,5 @@ async def execute_waste_inference(
         raise HTTPException(status_code=500, detail=f"Internal AI Error: {str(e)}")
 
 if __name__ == "__main__":
-    from uvicorn import Config, Server
-    config = Config(app, host="127.0.0.1", port=8001)
-    server = Server(config)
-    await server.serve()
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=8000)
