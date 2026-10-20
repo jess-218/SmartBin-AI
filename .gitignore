@@ -1,0 +1,16 @@
+.venv/
+.ipynb_checkpoints/
+__pycache__/
+runs/*
+!runs/.gitkeep
+SmartBin-FoodWasteDataset-6/*
+!SmartBin-FoodWasteDataset-6/.gitkeep
+*.pt
+.env
+*.env
+*.log
+.DS_Store
+.vscode/
+.idea/
+*.pyc
+*.pyo
