@@ -7,3 +7,4 @@ uvicorn
 python-multipart
 pydantic
 opencv-python-headless
+nest-asyncio
