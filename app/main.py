@@ -35,7 +35,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 model_path = 'app/weights/best.pt'
 if not os.path.exists(model_path):
-    model_path = 'app/weights/best.pt'
+    model_path = 'weights/best.pt'
 model = YOLO(model_path)
 
 DECISION_THRESHOLD = 0.53
@@ -180,7 +180,7 @@ async def execute_waste_inference(
             "explainable_ai_logs": {
                 "algorithm_applied": "YOLOv11s-seg Prediction & Mask Overlay",
                 "target_backbone_layer": "segmentation_head_output",
-                "heatmap_image_url": f"http://127.0.0.1:8001/static/heatmaps/{heatmap_filename}", #backup in local
+                "heatmap_image_url": f"/static/heatmaps/{heatmap_filename}", #backup for local
                 "heatmap_base64": heatmap_base64, #software used
                 "audit_trail_status": "verified_trustworthy"
             }
@@ -190,5 +190,5 @@ async def execute_waste_inference(
         raise HTTPException(status_code=500, detail=f"Internal AI Error: {str(e)}")
 
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
