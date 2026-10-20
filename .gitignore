@@ -14,3 +14,4 @@ SmartBin-FoodWasteDataset-6/*
 .idea/
 *.pyc
 *.pyo
+!app/weights/best.pt

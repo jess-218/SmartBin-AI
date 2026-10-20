@@ -35,7 +35,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 model_path = 'app/weights/best.pt'
 if not os.path.exists(model_path):
-    model_path = 'SmartBin_Production/1stTrain_SmartBin/weights/best.pt'
+    model_path = 'app/weights/best.pt'
 model = YOLO(model_path)
 
 DECISION_THRESHOLD = 0.53
